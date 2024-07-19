@@ -46,7 +46,21 @@
 
         // Optionnel : vous pouvez ajouter une vérification pour voir si l'utilisateur est connecté
     </script>
-
+    <div class="account-container">
+        <h2>Bienvenue dans votre espace compte</h2>
+        <div class="form-section">
+            <label for="edit-username">Nom d'utilisateur:</label>
+            <input type="text" id="edit-username">
+        </div>
+        <div class="form-section">
+            <label for="edit-password">Mot de passe:</label>
+            <input type="password" id="edit-password">
+        </div>
+        <button id="save-button">Enregistrer les modifications</button>
+        <div class="success-message" id="success-message">Modifications enregistrées avec succès.</div>
+        <div class="error-message" id="error-message">Erreur lors de l'enregistrement des modifications.</div>
+        <button id="logout-button">Se déconnecter</button>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (!localStorage.getItem('loggedIn')) {
