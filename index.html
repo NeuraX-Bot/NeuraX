@@ -10,30 +10,51 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="https://cdn.discordapp.com/avatars/1249323002726715443/aba617bdef87813e112820cb55441fd6.png?size=128"  alt="Logo du Bot" class="logo">
+            <img src="https://cdn.discordapp.com/avatars/1249323002726715443/aba617bdef87813e112820cb55441fd6.png?size=128" alt="Logo du Bot" class="logo">
         </div>
         <h1>Bienvenue sur notre Site "NeuraX"</h1>
-        <a href="https://discord.com/oauth2/authorize?client_id=1249323002726715443&permissions=8&integration_type=0&scope=bot" class="discord-link">Ajouté NeuraX</a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1249323002726715443&permissions=8&integration_type=0&scope=bot" class="discord-link">Ajouter NeuraX</a>
     </header>
     <nav>
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="connexion.html">Connexion</a></li>
+            <li><a href="profile.html">Profil</a></li>
         </ul>
     </nav>
     <main>
         <section>
-            <h2>À propos de notre Bot discord "NeuraX</h2>
-            <p>Notre bot offre des fonctionnalités uniques pour améliorer la visibilité de votre serveur discord.</p>
+            <h2>À propos de notre Bot Discord "NeuraX"</h2>
+            <p>Notre bot offre des fonctionnalités uniques pour améliorer la visibilité de votre serveur Discord.</p>
         </section>
         <section>
             <h2>Rejoignez notre Communauté</h2>
             <a href="https://discord.gg/VMFgxrmc8G" class="discord-link">Rejoindre le Serveur</a>
+        </section>
+        <!-- Section pour la photo de profil -->
+        <section class="profile-section">
+            <a href="profile.html">
+                <img id="profile-picture" src="default-profile.png" alt="Photo de Profil">
+                <h2 id="profile-username">Nom d'utilisateur</h2>
+            </a>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 NeuraX. Tous droits réservés.</p>
     </footer>
     <script src="scripts.js"></script>
+    <script>
+        // Fonction pour charger la photo de profil et le nom d'utilisateur depuis localStorage
+        function loadProfileData() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                document.getElementById('profile-picture').src = currentUser.profilePicture || 'default-profile.png';
+                document.getElementById('profile-username').innerText = currentUser.username || 'Nom d\'utilisateur';
+            }
+        }
+
+        // Charger les données du profil lorsque la page est chargée
+        loadProfileData();
+    </script>
 </body>
 </html>
