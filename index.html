@@ -32,7 +32,7 @@
             <a href="https://discord.gg/VMFgxrmc8G" class="discord-link">Rejoindre le Serveur</a>
         </section>
         <!-- Section pour la photo de profil -->
-        <section class="profile-section">
+        <section class="profile-section" id="profile-section">
             <a href="profile.html">
                 <img id="profile-picture" src="default-profile.png" alt="Photo de Profil">
                 <h2 id="profile-username">Nom d'utilisateur</h2>
@@ -44,12 +44,16 @@
     </footer>
     <script src="scripts.js"></script>
     <script>
-        // Fonction pour charger la photo de profil et le nom d'utilisateur depuis localStorage
+        // Fonction pour afficher la photo de profil seulement si l'utilisateur est connecté
         function loadProfileData() {
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const profileSection = document.getElementById('profile-section');
             if (currentUser) {
                 document.getElementById('profile-picture').src = currentUser.profilePicture || 'default-profile.png';
                 document.getElementById('profile-username').innerText = currentUser.username || 'Nom d\'utilisateur';
+                profileSection.style.display = 'flex'; // Affiche la section du profil
+            } else {
+                profileSection.style.display = 'none'; // Cache la section du profil
             }
         }
 
