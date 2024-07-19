@@ -19,7 +19,6 @@
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="connexion.html">Connexion</a></li>
-            <li><a href="profil.html">Profil</a></li>
         </ul>
     </nav>
     <main>
@@ -31,34 +30,9 @@
             <h2>Rejoignez notre Communauté</h2>
             <a href="https://discord.gg/VMFgxrmc8G" class="discord-link">Rejoindre le Serveur</a>
         </section>
-        <!-- Section pour la photo de profil -->
-        <section class="profile-section" id="profile-section">
-            <a href="profile.html">
-                <img id="profile-picture" src="default-profile.png" alt="Photo de Profil">
-                <h2 id="profile-username">Nom d'utilisateur</h2>
-            </a>
-        </section>
     </main>
     <footer>
         <p>&copy; 2024 NeuraX. Tous droits réservés.</p>
     </footer>
-    <script src="scripts.js"></script>
-    <script>
-        // Fonction pour afficher la photo de profil seulement si l'utilisateur est connecté
-        function loadProfileData() {
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            const profileSection = document.getElementById('profile-section');
-            if (currentUser) {
-                document.getElementById('profile-picture').src = currentUser.profilePicture || 'default-profile.png';
-                document.getElementById('profile-username').innerText = currentUser.username || 'Nom d\'utilisateur';
-                profileSection.style.display = 'flex'; // Affiche la section du profil
-            } else {
-                profileSection.style.display = 'none'; // Cache la section du profil
-            }
-        }
-
-        // Charger les données du profil lorsque la page est chargée
-        loadProfileData();
-    </script>
 </body>
 </html>
