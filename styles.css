@@ -79,6 +79,30 @@ p {
     background-color: #5b6eae;
 }
 
+.profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.profile-section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #007BFF;
+    transition: transform 0.3s;
+}
+
+.profile-section img:hover {
+    transform: scale(1.1);
+}
+
+.profile-section h2 {
+    margin-left: 20px;
+}
+
 footer {
     background-color: #333;
     color: black;
