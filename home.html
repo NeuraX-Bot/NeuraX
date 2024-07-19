@@ -46,5 +46,36 @@
 
         // Optionnel : vous pouvez ajouter une vérification pour voir si l'utilisateur est connecté
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('loggedIn')) {
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('edit-username').value = localStorage.getItem('username');
+                document.getElementById('edit-password').value = localStorage.getItem('password');
+            }
+        });
+
+        document.getElementById('logout-button').addEventListener('click', function() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        });
+
+        document.getElementById('save-button').addEventListener('click', function() {
+            var newUsername = document.getElementById('edit-username').value;
+            var newPassword = document.getElementById('edit-password').value;
+
+            if (newUsername && newPassword) {
+                localStorage.setItem('username', newUsername);
+                localStorage.setItem('password', newPassword);
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('error-message').style.display = 'none';
+            } else {
+                document.getElementById('success-message').style.display = 'none';
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
