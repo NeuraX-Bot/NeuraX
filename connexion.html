@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuraX - Page de Connexion</title>
-    <link rel="icon" href="https://cdn.discordapp.com/avatars/1249323002726715443/aba617bdef87813e112820cb55441fd6.png" type="image/x-icon">
-    </head>
+    <title>NeuraX - Connexion</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,6 +19,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
         .login-container h2 {
             margin: 0 0 15px 0;
@@ -48,69 +47,34 @@
             color: red;
             display: none;
         }
-
-        nav {
-            background-color: #333;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        nav ul li a:hover {
-            background-color: #111;
-        }
     </style>
 </head>
-    <header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Retour</a></li>
-        </ul>
-    </nav>
-    </header>
 <body>
     <div class="login-container">
         <h2>Connexion</h2>
         <div class="error-message" id="error-message">Nom d'utilisateur ou mot de passe incorrect.</div>
         <form id="login-form">
-            <input type="text" id="username" placeholder="Nom d'utilisateur" required>
-            <input type="password" id="password" placeholder="Mot de passe" required>
+            <input type="text" id="login-username" placeholder="Nom d'utilisateur" required>
+            <input type="password" id="login-password" placeholder="Mot de passe" required>
             <button type="submit">Se connecter</button>
         </form>
-    <footer>
-        <p>&copy; 2024 NeuraX. Tous droits réservés.</p>
-    </footer>
     </div>
 
     <script>
         document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Empêche l'envoi du formulaire
+            event.preventDefault();
 
-            // Récupère les valeurs des champs
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
 
-            // Exemple de vérification des identifiants (ici c'est juste un exemple statique)
-            if (username === 'utilisateur' && password === 'motdepasse') {
-                localStorage.setItem('loggedIn', true);
-                localStorage.setItem('username', username);
-                localStorage.setItem('password', password);
-                window.location.href = 'account.html';
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Vérifier les informations d'identification
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                // Rediriger vers la page d'accueil ou un tableau de bord
+                window.location.href = 'home.html'; // Remplacez par la page appropriée
             } else {
                 document.getElementById('error-message').style.display = 'block';
             }
