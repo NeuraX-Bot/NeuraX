@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicité pour Serveurs Discord</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Page de Publicité pour Serveurs Discord</h1>
+        <p>Bienvenue sur notre Page de Publicité !</p>
+        <p>Vous cherchez à promouvoir votre serveur Discord ? Vous êtes au bon endroit ! Ajoutez votre serveur à notre liste et faites-le connaître à un plus grand public. Chaque publicité sera validée par un administrateur pour assurer la qualité et la pertinence des contenus partagés.</p>
+        
+        <h2>Comment ça marche ?</h2>
+        <ol>
+            <li><strong>Soumettez votre publicité :</strong> Remplissez le formulaire ci-dessous avec les détails de votre serveur.</li>
+            <li><strong>Validation par un administrateur :</strong> Notre équipe examinera votre soumission pour s'assurer qu'elle respecte nos directives.</li>
+            <li><strong>Publication :</strong> Une fois validée, votre publicité apparaîtra sur notre page principale.</li>
+        </ol>
+        
+        <h2>Formulaire de Soumission</h2>
+        <form action="/submit" method="post">
+            <label for="server-name">Nom du Serveur :</label>
+            <input type="text" id="server-name" name="server-name" required>
+            
+            <label for="description">Description :</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <label for="invite-link">Lien d'invitation Discord :</label>
+            <input type="url" id="invite-link" name="invite-link" required>
+            
+            <label for="category">Catégorie :</label>
+            <select id="category" name="category" required>
+                <option value="gaming">Gaming</option>
+                <option value="community">Communauté</option>
+                <option value="education">Éducation</option>
+                <!-- Ajoutez d'autres catégories si nécessaire -->
+            </select>
+            
+            <label for="image">Image de Présentation (optionnel) :</label>
+            <input type="file" id="image" name="image">
+            
+            <button type="submit">Soumettre mon Serveur</button>
+        </form>
+        
+        <h2>Serveurs en Attente de Validation</h2>
+        <ul>
+            <li><strong>Nom du Serveur 1</strong>
+                <p>Description : Une communauté active pour les gamers.</p>
+                <p>Catégorie : Gaming</p>
+            </li>
+            <!-- Ajoutez d'autres serveurs en attente ici -->
+        </ul>
+    </div>
+</body>
+</html>
