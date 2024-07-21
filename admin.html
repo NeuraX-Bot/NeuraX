@@ -37,7 +37,23 @@
                     const tdUserName = document.createElement('td');
                     tdUserName.innerText = row.user_name;
                     tr.appendChild(tdUserName);
-                    
+
+                    const tdServerName = document.createElement('td');
+                    tdServerName.innerText = row.server_name;
+                    tr.appendChild(tdServerName);
+
+                    const tdServerLogo = document.createElement('td');
+                    tdServerLogo.innerHTML = `<img src="${row.server_logo}" alt="Logo" width="50">`;
+                    tr.appendChild(tdServerLogo);
+
+                    const tdServerLink = document.createElement('td');
+                    tdServerLink.innerHTML = `<a href="${row.server_link}" target="_blank">${row.server_link}</a>`;
+                    tr.appendChild(tdServerLink);
+
+                    const tdServerDescription = document.createElement('td');
+                    tdServerDescription.innerText = row.server_description;
+                    tr.appendChild(tdServerDescription);
+
                     const tdContent = document.createElement('td');
                     tdContent.innerText = row.content;
                     tr.appendChild(tdContent);
@@ -69,6 +85,10 @@
         <tr>
             <th>ID</th>
             <th>User Name</th>
+            <th>Server Name</th>
+            <th>Server Logo</th>
+            <th>Server Link</th>
+            <th>Server Description</th>
             <th>Content</th>
             <th>Approved</th>
             <th>Actions</th>
