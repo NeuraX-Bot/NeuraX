@@ -4,30 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Submit Content</h1>
-    <form id="submitForm">
-        <label for="user_name">Name:</label>
-        <input type="text" id="user_name" name="user_name" required><br><br>
+    <div class="container">
+        <h1>Submit Content</h1>
+        <form id="submitForm">
+            <label for="user_name">Name:</label>
+            <input type="text" id="user_name" name="user_name" required>
 
-        <label for="server_name">Nom de votre serveur:</label>
-        <input type="text" id="server_name" name="server_name" required><br><br>
+            <label for="server_name">Nom de votre serveur:</label>
+            <input type="text" id="server_name" name="server_name" required>
 
-        <label for="server_logo">Logo du serveur (URL):</label>
-        <input type="text" id="server_logo" name="server_logo"><br><br>
+            <label for="server_logo">Logo du serveur (URL):</label>
+            <input type="text" id="server_logo" name="server_logo">
 
-        <label for="server_link">Lien de votre serveur:</label>
-        <input type="text" id="server_link" name="server_link"><br><br>
+            <label for="server_link">Lien de votre serveur:</label>
+            <input type="text" id="server_link" name="server_link">
 
-        <label for="server_description">Description de votre serveur:</label><br>
-        <textarea id="server_description" name="server_description" rows="4" cols="50"></textarea><br><br>
+            <label for="server_description">Description de votre serveur:</label>
+            <textarea id="server_description" name="server_description" rows="4" cols="50"></textarea>
 
-        <label for="content">Content:</label><br>
-        <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="10" cols="50" required></textarea>
 
-        <input type="submit" value="Submit">
-    </form>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     <script>
         document.getElementById('submitForm').addEventListener('submit', function(e) {
