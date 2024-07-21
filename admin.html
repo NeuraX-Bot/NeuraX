@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <script>
+        function approveSubmission(id) {
+            fetch('approve.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `id=${id}`,
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                document.getElementById(`status-${id}`).innerText = 'Yes';
+                document.getElementById(`approve-${id}`).disabled = true;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        window.onload = function() {
+            fetch('get_submissions.php')
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('submissionsTable');
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    
+                    const tdId = document.createElement('td');
+                    tdId.innerText = row.id;
+                    tr.appendChild(tdId);
+                    
+                    const tdUserName = document.createElement('td');
+                    tdUserName.innerText = row.user_name;
+                    tr.appendChild(tdUserName);
+                    
+                    const tdContent = document.createElement('td');
+                    tdContent.innerText = row.content;
+                    tr.appendChild(tdContent);
+                    
+                    const tdApproved = document.createElement('td');
+                    tdApproved.id = `status-${row.id}`;
+                    tdApproved.innerText = row.is_approved ? 'Yes' : 'No';
+                    tr.appendChild(tdApproved);
+                    
+                    const tdActions = document.createElement('td');
+                    const btnApprove = document.createElement('button');
+                    btnApprove.innerText = 'Approve';
+                    btnApprove.id = `approve-${row.id}`;
+                    btnApprove.disabled = row.is_approved;
+                    btnApprove.onclick = function() { approveSubmission(row.id); };
+                    tdActions.appendChild(btnApprove);
+                    tr.appendChild(tdActions);
+                    
+                    table.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <table id="submissionsTable" border="1">
+        <tr>
+            <th>ID</th>
+            <th>User Name</th>
+            <th>Content</th>
+            <th>Approved</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+</body>
+</html>
