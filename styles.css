@@ -26,6 +26,24 @@ header {
     transform: scale(1.2);
 }
 
+.logo {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Centre le logo et ajoute de l'espace en dessous */
+    animation: zoom 10s linear infinite; /* Applique l'animation */
+}
+
+/* Animation de rotation */
+@keyframes zoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
 nav {
     background-color: #333;
 }
