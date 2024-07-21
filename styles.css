@@ -64,6 +64,14 @@ p {
     color: #555;
 }
 
+.section {
+    background-color: white;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .discord-link {
     display: inline-block;
     margin-top: 20px;
