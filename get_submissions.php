@@ -13,16 +13,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, user_name, content, is_approved FROM submissions";
+$sql = "SELECT id, user_name, server_name, server_logo, server_link, server_description, content, is_approved FROM submissions";
 $result = $conn->query($sql);
 
 $submissions = array();
 
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $submissions[] = $row;
     }
-} 
+}
 
 echo json_encode($submissions);
 
