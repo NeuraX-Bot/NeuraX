@@ -112,22 +112,25 @@ p {
     margin: 20px 0;
 }
 
-.profile-section img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid #007BFF;
-    transition: transform 0.3s;
+#backToTopBtn {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Position fixe, en haut de la page */
+    bottom: 20px; /* 20px du bas */
+    right: 30px; /* 30px de la droite */
+    z-index: 99; /* S'assurer que le bouton est au-dessus des autres éléments */
+    font-size: 18px; /* Taille de la police */
+    background-color: #555; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    padding: 15px; /* Espacement intérieur */
+    border-radius: 10px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
 }
 
-.profile-section img:hover {
-    transform: scale(1.1);
+#backToTopBtn:hover {
+    background-color: #333; /* Couleur de fond en survol */
 }
 
-.profile-section h2 {
-    margin-left: 20px;
-}
 
 footer {
     background-color: #333;
